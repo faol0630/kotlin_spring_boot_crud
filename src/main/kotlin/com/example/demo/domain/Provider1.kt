@@ -8,7 +8,7 @@ import javax.validation.constraints.Size
 @Entity
 @Table(name = "Provider")
 data class Provider1(
-    @Id // anotacion
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Int,
     @get:Size(min = 3, max = 20)

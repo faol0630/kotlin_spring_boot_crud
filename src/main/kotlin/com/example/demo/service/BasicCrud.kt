@@ -13,4 +13,7 @@ interface BasicCrud<T, ID> {
 
     fun deleteById(id: ID): T
 
+    fun deleteAll()
+
+
 }

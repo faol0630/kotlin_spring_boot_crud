@@ -32,4 +32,9 @@ abstract class BasicController<T, ID>(private val basicCrud: BasicCrud<T, ID>) {
 
     @DeleteMapping("/{id}")
     fun deleteById(@PathVariable id: ID) = ResponseEntity.status(HttpStatus.OK).body(this.basicCrud.deleteById(id))
+
+    @DeleteMapping
+    fun deleteAll() = ResponseEntity.status(HttpStatus.OK).body(basicCrud.deleteAll())
+
+
 }

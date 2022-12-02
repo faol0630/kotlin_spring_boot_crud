@@ -43,6 +43,9 @@ class ProviderServices(val providerDao: ProviderDao): BasicCrud<Provider1, Int> 
         } ?: throw EntityNotFoundException("$id does not exists(from deleteById)")
     }
 
+    override fun deleteAll() = providerDao.deleteAll()
+
+
 
 }
 

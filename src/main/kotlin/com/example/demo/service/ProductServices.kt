@@ -26,7 +26,7 @@ class ProductServices(val productDao: ProductDao) : BasicCrud<Product, String> {
     override fun save(param1: Product): Product {
         return if (!this.productDao.existsById(param1.name)) {
             this.productDao.save(param1)
-        }else{
+        } else {
             throw DuplicateKeyException("${param1.name} does exists(from save)")
         }
     }
@@ -34,7 +34,7 @@ class ProductServices(val productDao: ProductDao) : BasicCrud<Product, String> {
     override fun update(param1: Product): Product {
         return if (this.productDao.existsById(param1.name)) {
             this.productDao.save(param1)
-        }else{
+        } else {
             throw EntityNotFoundException("${param1.name} does not exists(from update)")
         }
     }
@@ -44,6 +44,10 @@ class ProductServices(val productDao: ProductDao) : BasicCrud<Product, String> {
             this@ProductServices.productDao.deleteById(this!!.name)
         } ?: throw EntityNotFoundException("$id does not exists(from deleteById)")
     }
+
+    override fun deleteAll() = productDao.deleteAll()
+
+
 
 
 }

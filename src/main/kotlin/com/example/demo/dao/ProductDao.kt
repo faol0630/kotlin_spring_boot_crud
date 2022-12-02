@@ -6,3 +6,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface ProductDao: JpaRepository<Product, String>
+
+

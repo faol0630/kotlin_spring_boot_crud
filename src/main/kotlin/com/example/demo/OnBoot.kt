@@ -14,9 +14,9 @@ class OnBoot(
     private val providerServices: ProviderServices
 ) : ApplicationRunner {
 
-    final val provider1 = providerServices.save(Provider1(1, "Luis Gomez", "Luis45@Gmail.com"))
-    final val provider2 = providerServices.save(Provider1(2, "Pedro Flores", "PedroF123@Hotmail.com"))
-    final val provider3 = providerServices.save(Provider1(3, "Lee John", "Lee21J@Yahoo.com"))
+    private final val provider1 = providerServices.save(Provider1(1, "Luis Gomez", "Luis45@Gmail.com"))
+    private final val provider2 = providerServices.save(Provider1(2, "Pedro Flores", "PedroF123@Hotmail.com"))
+    private final val provider3 = providerServices.save(Provider1(3, "Lee John", "Lee21J@Yahoo.com"))
 
     val products: MutableSet<Product> = mutableSetOf(
         Product("Apple", 22.2, 14, provider3),
