@@ -1,7 +1,9 @@
 package com.example.demo.domain
 
+import ch.qos.logback.core.net.server.Client
 import javax.persistence.*
 import javax.validation.constraints.Min
+import javax.validation.constraints.NotNull
 import javax.validation.constraints.Size
 
 @Entity
@@ -13,6 +15,7 @@ data class Product(
     val id: Int,
 
     @get:Size(min = 3, max = 20)
+    @NotNull
     val name: String,
 
     @get:Min(0)
@@ -21,16 +24,16 @@ data class Product(
     @get:Min(0)
     val stock: Int = 0,
 
-    @ManyToOne
+    @ManyToOne //por ahora debe ser ManyToOne, sino da error
     val provider1: Provider1
 
-){
+) {
     override fun equals(other: Any?): Boolean {
-        other?: return false
-        if (other === this){
+        other ?: return false
+        if (other === this) {
             return true
         }
-        if (this.javaClass != other.javaClass){
+        if (this.javaClass != other.javaClass) {
             return false
         }
         other as Product

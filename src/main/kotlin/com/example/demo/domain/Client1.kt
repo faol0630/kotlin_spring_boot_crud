@@ -1,34 +1,36 @@
 package com.example.demo.domain
 
 import javax.persistence.*
-import javax.validation.constraints.Email
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Size
 
 
 @Entity
-@Table(name = "Provider")
-data class Provider1(
+@Table(name = "Client")
+data class Client1(
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Int,
+    val id: Int,
 
-    @NotNull
     @get:Size(min = 3, max = 20)
+    @NotNull
     val name: String,
 
-    @get:Email
-    val email: String
-){
+    @get:Size(min = 3, max = 20)
+    @NotNull
+    val managerName: String
+
+) {
     override fun equals(other: Any?): Boolean {
-        other?: return false
-        if (other === this){
+        other ?: return false
+        if (other === this) {
             return true
         }
-        if (this.javaClass != other.javaClass){
+        if (this.javaClass != other.javaClass) {
             return false
         }
-        other as Provider1
+        other as Product
 
         return this.id == other.id
     }
