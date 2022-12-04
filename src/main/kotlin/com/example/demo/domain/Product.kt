@@ -1,6 +1,5 @@
 package com.example.demo.domain
 
-import ch.qos.logback.core.net.server.Client
 import javax.persistence.*
 import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
@@ -24,8 +23,16 @@ data class Product(
     @get:Min(0)
     val stock: Int = 0,
 
-    @ManyToOne //por ahora debe ser ManyToOne, sino da error
-    val provider1: Provider1
+    @ManyToOne //un provider por producto.el provider puede proveer mas de un producto
+    val provider1: Provider1,
+
+    @ManyToMany
+    @JoinTable(
+        name = "comprasCLientes",
+        joinColumns = [JoinColumn(name = "product_id")],
+        inverseJoinColumns = [JoinColumn(name = "client_id")]
+    )
+    val clientsList: MutableSet<Client1> = mutableSetOf() //inicializa aca
 
 ) {
     override fun equals(other: Any?): Boolean {

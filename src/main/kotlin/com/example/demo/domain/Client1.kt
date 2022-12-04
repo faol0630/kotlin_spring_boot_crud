@@ -18,8 +18,10 @@ data class Client1(
     val name: String,
 
     @get:Size(min = 3, max = 20)
-    @NotNull
-    val managerName: String
+    val managerName: String,
+
+    @ManyToMany(mappedBy = "clientsList") //nombre de la variable del otro data class
+    val productsList : MutableSet<Product> = mutableSetOf() //inicializa aca
 
 ) {
     override fun equals(other: Any?): Boolean {

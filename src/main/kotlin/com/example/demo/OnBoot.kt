@@ -29,13 +29,13 @@ class OnBoot(
 
     private final val products: MutableSet<Product> by lazy {
         mutableSetOf(
-        Product(1, "Apple", 22.2, 14, providers.last()),
-        Product(2, "Banana", 33.3, 5, providers.elementAt(1)),
-        Product(3, "Orange", 15.7, 8, providers.elementAt(1)),
-        Product(4, "Watermelon", 34.2, 12, providers.first()),
-        Product(5, "Strawberry", 23.6, 1, providers.last()),
-        Product(6, "Pineapple", 36.1, 9, providers.first())
-    )
+            Product(1, "Apple", 22.2, 14, providers.last()),
+            Product(2, "Banana", 33.3, 5, providers.elementAt(1)),
+            Product(3, "Orange", 15.7, 8, providers.elementAt(1)),
+            Product(4, "Watermelon", 34.2, 12, providers.first()),
+            Product(5, "Strawberry", 23.6, 1, providers.last()),
+            Product(6, "Pineapple", 36.1, 9, providers.first())
+        )
     }
 
     private final val clients: MutableSet<Client1> = mutableSetOf(
