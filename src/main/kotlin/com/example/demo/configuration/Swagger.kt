@@ -26,3 +26,6 @@ class Swagger {
 //open swagger:
 //http://localhost:8080/swagger-ui.html
 
+//para ver desde emulador de androidstudio:
+//http://10.0.2.2:8080/swagger-ui.html
+

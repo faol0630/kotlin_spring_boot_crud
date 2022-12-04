@@ -13,6 +13,7 @@ import javax.transaction.Transactional
 @Transactional
 @Service
 class ProviderServices(val providerDao: ProviderDao): BasicCrud<Provider1, Int> {
+
     override fun findAll(): List<Provider1> {
         return this.providerDao.findAll()
     }
@@ -45,8 +46,9 @@ class ProviderServices(val providerDao: ProviderDao): BasicCrud<Provider1, Int> 
 
     override fun deleteAll() = providerDao.deleteAll()
 
-
-
 }
 
 //http://localhost:8080/api/v1/provider
+
+//para ver desde emulador de androidStudio:
+//http://10.0.2.2:8080/api/v1/provider

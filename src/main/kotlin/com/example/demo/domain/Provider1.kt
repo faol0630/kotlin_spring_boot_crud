@@ -11,8 +11,10 @@ data class Provider1(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Int,
+
     @get:Size(min = 3, max = 20)
     val name: String,
+
     @get:Email
     val email: String
 ){

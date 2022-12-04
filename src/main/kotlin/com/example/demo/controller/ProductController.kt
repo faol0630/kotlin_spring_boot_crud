@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/v1/product")
-class ProductController(productServices: ProductServices): BasicController<Product, String>(productServices)
+class ProductController(productServices: ProductServices): BasicController<Product, Int>(productServices)
 
 
 

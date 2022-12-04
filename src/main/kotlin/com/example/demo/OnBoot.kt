@@ -19,19 +19,19 @@ class OnBoot(
     private final val provider3 = providerServices.save(Provider1(3, "Lee John", "Lee21J@Yahoo.com"))
 
     val products: MutableSet<Product> = mutableSetOf(
-        Product("Apple", 22.2, 14, provider3),
-        Product("Banana", 33.3, 5, provider2),
-        Product("Orange", 15.7, 8, provider2),
-        Product("Watermelon", 34.2, 12, provider1),
-        Product("Strawberry", 23.6, 1, provider3),
-        Product("Pineapple", 36.1, 9, provider1)
+        Product(1, "Apple", 22.2, 14, provider3),
+        Product(2, "Banana", 33.3, 5, provider2),
+        Product(3, "Orange", 15.7, 8, provider2),
+        Product(4, "Watermelon", 34.2, 12, provider1),
+        Product(5, "Strawberry", 23.6, 1, provider3),
+        Product(6, "Pineapple", 36.1, 9, provider1)
     )
 
     override fun run(args: ApplicationArguments?) {
 
         products.forEach {
-            if (!productServices.productDao.existsById(it.name)) {
-                println("Saving -> ${it.name}")
+            if (!productServices.productDao.existsById(it.id)) {
+                println("Saving -> ${it.id}")
                 productServices.save(it)
             }
         }

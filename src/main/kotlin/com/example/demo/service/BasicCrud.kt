@@ -15,5 +15,4 @@ interface BasicCrud<T, ID> {
 
     fun deleteAll()
 
-
 }

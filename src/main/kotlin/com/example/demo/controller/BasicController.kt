@@ -2,6 +2,7 @@ package com.example.demo.controller
 
 import com.example.demo.service.BasicCrud
 import io.swagger.annotations.ApiOperation
+import org.mapstruct.Mapping
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -31,10 +32,18 @@ abstract class BasicController<T, ID>(private val basicCrud: BasicCrud<T, ID>) {
     fun update(@RequestBody body: T) = ResponseEntity.status(HttpStatus.OK).body(this.basicCrud.update(body))
 
     @DeleteMapping("/{id}")
-    fun deleteById(@PathVariable id: ID) = ResponseEntity.status(HttpStatus.OK).body(this.basicCrud.deleteById(id))
+    fun deleteById(@PathVariable id: ID) : ResponseEntity<T> {
+        val entity = basicCrud.deleteById(id)
+        return ResponseEntity.status(
+            if (entity != null){
+                HttpStatus.OK
+            }else{
+                HttpStatus.NO_CONTENT
+            }
+        ).body(entity)
+    }
 
     @DeleteMapping
     fun deleteAll() = ResponseEntity.status(HttpStatus.OK).body(basicCrud.deleteAll())
-
 
 }
