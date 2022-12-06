@@ -21,14 +21,6 @@ data class Provider1(
     val email: String
 ){
 
-    //@ManyToMany
-    //val clientsListFromProvider : MutableSet<Client1> = mutableSetOf()
-
-    //@OneToMany
-    //val productsListFromProvider : MutableSet<Product> = mutableSetOf()
-    //este seria la otra parte de onlyProvider en la entity product
-
-
     override fun equals(other: Any?): Boolean {
         other?: return false
         if (other === this){

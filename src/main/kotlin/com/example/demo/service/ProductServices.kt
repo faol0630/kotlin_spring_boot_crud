@@ -49,5 +49,5 @@ class ProductServices(val productDao: ProductDao) : BasicCrud<Product, Int> {
 
 //http://localhost:8080/api/v1/product
 
-//para ver desde emulador de androidStudio:
+//from android studio emulator:
 //http://10.0.2.2:8080/api/v1/product

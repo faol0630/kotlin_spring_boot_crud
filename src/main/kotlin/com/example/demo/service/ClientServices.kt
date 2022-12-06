@@ -49,5 +49,5 @@ class ClientServices(val clientDao: ClientDao): BasicCrud<Client1, Int> {
 
 //http://localhost:8080/api/v1/client
 
-//para ver desde emulador de androidStudio:
+//from android studio emulator:
 //http://10.0.2.2:8080/api/v1/client

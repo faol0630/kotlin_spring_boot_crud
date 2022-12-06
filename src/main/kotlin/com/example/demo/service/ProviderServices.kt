@@ -50,5 +50,5 @@ class ProviderServices(val providerDao: ProviderDao): BasicCrud<Provider1, Int> 
 
 //http://localhost:8080/api/v1/provider
 
-//para ver desde emulador de androidStudio:
+//from android studio emulator:
 //http://10.0.2.2:8080/api/v1/provider
