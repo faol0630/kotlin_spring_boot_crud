@@ -20,10 +20,17 @@ data class Client1(
     @get:Size(min = 3, max = 20)
     val managerName: String,
 
-    @ManyToMany(mappedBy = "clientsList") //nombre de la variable del otro data class
-    val productsList : MutableSet<Product> = mutableSetOf() //inicializa aca
+    @ManyToMany
+    val productsList : MutableSet<Product>
+
+//    @ManyToMany
+//    val providersList : MutableSet<Provider1> = mutableSetOf()
+
+//    @ManyToMany(mappedBy = "clientsList") //nombre de la variable del otro data class
+//    val productsList : MutableSet<Product> = mutableSetOf() //inicializa aca
 
 ) {
+
     override fun equals(other: Any?): Boolean {
         other ?: return false
         if (other === this) {

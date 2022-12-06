@@ -24,17 +24,24 @@ data class Product(
     val stock: Int = 0,
 
     @ManyToOne //un provider por producto.el provider puede proveer mas de un producto
-    val provider1: Provider1,
+    val onlyProvider: Provider1
 
-    @ManyToMany
-    @JoinTable(
-        name = "comprasCLientes",
-        joinColumns = [JoinColumn(name = "product_id")],
-        inverseJoinColumns = [JoinColumn(name = "client_id")]
-    )
-    val clientsList: MutableSet<Client1> = mutableSetOf() //inicializa aca
+//    @ManyToMany
+//    @JoinTable(
+//        name = "comprasCLientes",
+//        joinColumns = [JoinColumn(name = "product_id")],
+//        inverseJoinColumns = [JoinColumn(name = "client_id")]
+//    )
+//    val clientsList: MutableSet<Client1> = mutableSetOf() //inicializa aca
 
 ) {
+
+//    @ManyToOne
+//    val provider1: Provider1
+
+    //@ManyToMany
+    //val clientsList: MutableSet<Client1> = mutableSetOf()
+
     override fun equals(other: Any?): Boolean {
         other ?: return false
         if (other === this) {

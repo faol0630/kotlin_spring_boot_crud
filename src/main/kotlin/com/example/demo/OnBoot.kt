@@ -27,21 +27,29 @@ class OnBoot(
         Provider1(3, "Lee John", "Lee21J@Yahoo.com")
     )
 
-    private final val products: MutableSet<Product> by lazy {
-        mutableSetOf(
-            Product(1, "Apple", 22.2, 14, providers.last()),
-            Product(2, "Banana", 33.3, 5, providers.elementAt(1)),
-            Product(3, "Orange", 15.7, 8, providers.elementAt(1)),
-            Product(4, "Watermelon", 34.2, 12, providers.first()),
-            Product(5, "Strawberry", 23.6, 1, providers.last()),
-            Product(6, "Pineapple", 36.1, 9, providers.first())
-        )
-    }
+    private final val productsList1: MutableSet<Product> = mutableSetOf(
+        Product(1, "Apple", 22.2, 14, providers.last()),
+        Product(2, "Banana", 33.3, 5, providers.elementAt(1)),
+        Product(3, "Orange", 15.7, 8, providers.elementAt(1))
+    )
+
+    private final val productsList2: MutableSet<Product> = mutableSetOf(
+        Product(4, "Watermelon", 34.2, 12, providers.first()),
+        Product(5, "Strawberry", 23.6, 1, providers.last()),
+        Product(6, "Pineapple", 36.1, 9, providers.first())
+    )
+
+    private final val productsList3: MutableSet<Product> = mutableSetOf(
+        Product(1, "Apple", 22.2, 14, providers.last()),
+        Product(4, "Watermelon", 34.2, 12, providers.first()),
+        Product(5, "Strawberry", 23.6, 1, providers.last()),
+        Product(6, "Pineapple", 36.1, 9, providers.first())
+    )
 
     private final val clients: MutableSet<Client1> = mutableSetOf(
-        Client1(1, "Fruit store one", "Carl Fuentes"),
-        Client1(2, "Fruit store two", "John Max"),
-        Client1(3, "Fruit store three", "Martha Minus"),
+        Client1(1, "Fruit store one", "Carl Fuentes", productsList3),
+        Client1(2, "Fruit store two", "John Max", productsList2),
+        Client1(3, "Fruit store three", "Martha Minus", productsList1),
     )
 
     override fun run(args: ApplicationArguments?) {
@@ -53,7 +61,19 @@ class OnBoot(
             }
         }
 
-        products.forEach {
+        productsList1.forEach {
+            if (!productServices.productDao.existsById(it.id)) {
+                println("Saving -> ${it.id}")
+                productServices.save(it)
+            }
+        }
+        productsList2.forEach {
+            if (!productServices.productDao.existsById(it.id)) {
+                println("Saving -> ${it.id}")
+                productServices.save(it)
+            }
+        }
+        productsList3.forEach {
             if (!productServices.productDao.existsById(it.id)) {
                 println("Saving -> ${it.id}")
                 productServices.save(it)
